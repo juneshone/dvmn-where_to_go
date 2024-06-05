@@ -34,7 +34,7 @@ class Imagery(models.Model):
     )
     image = models.ImageField(
         'Изображение',
-        upload_to='static/images/'
+        upload_to='images/'
     )
     ordinal = models.PositiveIntegerField(
         'Порядковый номер',
