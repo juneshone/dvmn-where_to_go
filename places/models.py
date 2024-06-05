@@ -23,3 +23,28 @@ class Place(models.Model):
         verbose_name = 'Место для посещения'
         verbose_name_plural = 'Места для посещения'
         ordering = ['title']
+
+
+class Imagery(models.Model):
+    place = models.ForeignKey(
+        Place,
+        on_delete=models.CASCADE,
+        related_name='imageries',
+        verbose_name='Место для посещения'
+    )
+    image = models.ImageField(
+        'Изображение',
+        upload_to='static/images/'
+    )
+    ordinal = models.PositiveIntegerField(
+        'Порядковый номер',
+        default=1
+    )
+
+    def __str__(self):
+        return f'{self.ordinal} {self.place}'
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
+        ordering = ['place', 'ordinal']
