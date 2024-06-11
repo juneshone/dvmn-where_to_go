@@ -7,6 +7,6 @@ from places import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('places/<int:id>/', views.get_place, name='places'),
+    path('places/<int:id>/', views.upload_place_detail, name='places'),
     path('', views.index, name='index'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
