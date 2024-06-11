@@ -38,7 +38,8 @@ class Imagery(models.Model):
     )
     ordinal = models.PositiveIntegerField(
         'Порядковый номер',
-        default=1
+        default=1,
+        db_index=True
     )
 
     def __str__(self):
@@ -47,4 +48,4 @@ class Imagery(models.Model):
     class Meta:
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
-        ordering = ['place', 'ordinal']
+        ordering = ['ordinal']
