@@ -23,5 +23,4 @@ class PlaceAdmin(SortableAdminBase, admin.ModelAdmin):
 
 @admin.register(Imagery)
 class ImageryAdmin(admin.ModelAdmin):
-    search_fields = ('place',)
     list_display = ('place', 'ordinal',)
