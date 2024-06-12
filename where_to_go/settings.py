@@ -115,7 +115,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = env.str('STATIC_URL', default='static/')
+STATIC_URL = env.str('STATIC_URL', default='/static/')
+
+STATIC_ROOT = env.str('STATIC_ROOT', default=os.path.join(BASE_DIR, 'static'))
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
@@ -123,7 +125,7 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = env.str('MEDIA_ROOT', default=os.path.join(BASE_DIR, 'media'))
 
-MEDIA_URL = env.str('MEDIA_URL', default='media/')
+MEDIA_URL = env.str('MEDIA_URL', default='/media/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
