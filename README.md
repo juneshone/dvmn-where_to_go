@@ -33,7 +33,7 @@ ALLOWED_HOSTS='host1,host2'                 # белый список хосто
 DEBUG=True                                  # отладочный режим
 SECRET_KEY='django_secret_key'              # секретный ключ django проекта
 STATIC_URL='static/'                        # префикс URL-адреса для статических файлов
-STATIC_ROOT='../pythonanywhere.com/static/' # каталог для развертывания статических файлов
+STATIC_ROOT='../site/static/'               # каталог для развертывания статических файлов
 MEDIA_ROOT='Users/dvmn-where_to_go/media/'  # путь к корневому каталогу, в котором хранятся файлы
 MEDIA_URL='media/'                          # URL-адрес, который будет обслуживать медиафайлы
 ```
