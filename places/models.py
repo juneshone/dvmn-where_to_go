@@ -8,10 +8,10 @@ class Place(models.Model):
         max_length=100,
         unique=True
     )
-    description_short = models.TextField(
+    short_description = models.TextField(
         'Краткое описание'
     )
-    description_long = HTMLField(
+    long_description = HTMLField(
         'Полное описание'
     )
     lng = models.FloatField(
