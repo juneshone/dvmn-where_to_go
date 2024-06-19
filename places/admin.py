@@ -6,9 +6,9 @@ from adminsortable2.admin import SortableTabularInline, SortableAdminBase
 
 class ImageryInline(SortableTabularInline):
     model = Imagery
-    readonly_fields = ('preview',)
+    readonly_fields = ('get_preview',)
 
-    def preview(self, obj):
+    def get_preview(self, obj):
         return format_html(
             f'<img src="{obj.image.url}" style="max-height: 200px; max-width: 300px;">'
         )
