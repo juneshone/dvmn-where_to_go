@@ -4,13 +4,17 @@ from places.models import Place, Imagery
 from adminsortable2.admin import SortableTabularInline, SortableAdminBase
 
 
+MAX_HEIGHT = 200
+MAX_WIDTH = 300
+
+
 class ImageryInline(SortableTabularInline):
     model = Imagery
     readonly_fields = ('get_preview',)
 
     def get_preview(self, obj):
         return format_html(
-            f'<img src="{obj.image.url}" style="max-height: 200px; max-width: 300px;">'
+            f'<img src="{obj.image.url}" style="max-height: {MAX_HEIGHT}px; max-width: {MAX_WIDTH}px;">'
         )
 
 
