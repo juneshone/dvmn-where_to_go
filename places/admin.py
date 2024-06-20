@@ -1,7 +1,8 @@
+from adminsortable2.admin import SortableTabularInline, SortableAdminBase
 from django.contrib import admin
 from django.utils.html import format_html
+
 from places.models import Place, Imagery
-from adminsortable2.admin import SortableTabularInline, SortableAdminBase
 
 
 MAX_HEIGHT = 200

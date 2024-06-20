@@ -1,8 +1,10 @@
 import requests
 import time
+
 from django.core.files.base import ContentFile
 from django.core.management.base import BaseCommand
 from requests.exceptions import HTTPError, ConnectionError
+
 from places.models import Place, Imagery
 
 
