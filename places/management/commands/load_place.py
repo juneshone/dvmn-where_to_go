@@ -28,7 +28,7 @@ class Command(BaseCommand):
             }
         )
 
-        for ordinal, image_url in enumerate(response.json()['imgs'], 1):
+        for ordinal, image_url in enumerate(place_json['imgs'], 1):
             if image_url:
                 response = requests.get(image_url)
                 response.raise_for_status()
@@ -44,7 +44,7 @@ class Command(BaseCommand):
             if json_url:
                 response = requests.get(json_url)
                 response.raise_for_status()
-                if response.status_code == 200:
+                if response.ok:
                     self.load_place(response)
         except HTTPError as e:
             print(f'{type(e)}:Ссылка не найдена.')
