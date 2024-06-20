@@ -17,13 +17,14 @@ class Command(BaseCommand):
         )
 
     def load_place(self, response):
+        place_json = response.json()
         place = Place.objects.get_or_create(
-            title=response.json()['title'],
+            title=place_json['title'],
             defaults={
-                'description_short': response.json()['short_description'],
-                'description_long': response.json()['long_description'],
-                'lng': response.json()['coordinates']['lng'],
-                'lat': response.json()['coordinates']['lat'],
+                'description_short': place_json['short_description'],
+                'description_long': place_json['long_description'],
+                'lng': place_json['coordinates']['lng'],
+                'lat': place_json['coordinates']['lat'],
             }
         )
 
