@@ -19,18 +19,18 @@ class Command(BaseCommand):
         )
 
     def load_place(self, response):
-        place_json = response.json()
+        raw_place = response.json()
         place = Place.objects.get_or_create(
-            title=place_json['title'],
+            title=raw_place['title'],
             defaults={
-                'short_description': place_json['description_short'],
-                'long_description': place_json['description_long'],
-                'lng': place_json['coordinates']['lng'],
-                'lat': place_json['coordinates']['lat'],
+                'short_description': raw_place['description_short'],
+                'long_description': raw_place['description_long'],
+                'lng': raw_place['coordinates']['lng'],
+                'lat': raw_place['coordinates']['lat'],
             }
         )
 
-        for ordinal, image_url in enumerate(place_json['imgs'], 1):
+        for ordinal, image_url in enumerate(raw_place['imgs'], 1):
             if image_url:
                 response = requests.get(image_url)
                 response.raise_for_status()
