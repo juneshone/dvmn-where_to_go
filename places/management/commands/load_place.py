@@ -20,7 +20,7 @@ class Command(BaseCommand):
 
     def load_place(self, response):
         raw_place = response.json()
-        place = Place.objects.get_or_create(
+        place, created = Place.objects.get_or_create(
             title=raw_place['title'],
             defaults={
                 'short_description': raw_place['description_short'],
@@ -35,7 +35,7 @@ class Command(BaseCommand):
                 response = requests.get(image_url)
                 response.raise_for_status()
                 Imagery.objects.get_or_create(
-                    place=place[0],
+                    place=place,
                     image=ContentFile(response.content, image_url.split('/')[-1]),
                     ordinal=ordinal,
                 )
